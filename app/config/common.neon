@@ -14,5 +14,5 @@ session:
 services:
 	router: App\Router\RouterFactory::createRouter
 	authenticator: Nette\Security\SimpleAuthenticator([
-			1234z: 1234
+			test: 1234
 		])

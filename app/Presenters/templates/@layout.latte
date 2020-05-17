@@ -10,10 +10,19 @@
 <body>
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
+	{if $user->loggedIn}
+		<p>Přihlašen jako: {$user->getId()}</p>
+	{else}
+		<p>Nepřihlašen</p>
+	{/if}
+
 	<a n:href="Lorem:lorem">Lorem</a>
-	<a n:href="User:login">Login</a>
-	<a n:href="User:register">Register</a>
-	<a n:href="User:logout">Logout</a>
+	{if $user->loggedIn}
+		<a n:href="User:logout">Logout</a>
+	{else}
+		<a n:href="User:login">Login</a>
+		<a n:href="User:register">Register</a>
+	{/if}
 
 	{include content}
 
