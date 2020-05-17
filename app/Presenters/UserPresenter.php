@@ -11,6 +11,7 @@ use Nette\Security\User;
 
 final class UserPresenter extends Nette\Application\UI\Presenter
 {
+    // formulář pro registraci
     protected function createComponentRegistrationForm(): UI\Form
     {
         $form = new UI\Form;
@@ -21,13 +22,14 @@ final class UserPresenter extends Nette\Application\UI\Presenter
         return $form;
     }
 
-    // volá se po úspěšném odeslání formuláře
+    // volá se po úspěšném odeslání formuláře registrace
     public function registrationFormSucceeded(UI\Form $form, \stdClass $values): void
     {
         $this->flashMessage('Byl jste úspěšně registrován. ' . $values->username);
         $this->redirect('Lorem:lorem');
     }
 
+    // formulář pro login
     protected function createComponentLoginForm(): UI\Form
     {
         $form = new UI\Form;
@@ -38,7 +40,7 @@ final class UserPresenter extends Nette\Application\UI\Presenter
         return $form;
     }
 
-    // volá se po úspěšném odeslání formuláře
+    // volá se po úspěšném odeslání formuláře login
     public function loginFormSucceeded(UI\Form $form, \stdClass $values): void
     {
         Debugger::barDump($values);
@@ -54,10 +56,29 @@ final class UserPresenter extends Nette\Application\UI\Presenter
         }
     }
 
+    // logout metoda
     public function actionLogout(): void
     {
         $this->getUser()->logout();
         $this->flashMessage('Odhlášení bylo úspěšné.');
         $this->redirect('Lorem:lorem');
+    }
+
+    // login metoda
+    public function actionLogin(): void
+    {
+        if ($this->getUser()->loggedIn){
+            $this->flashMessage('Už jste přihlášen.');
+            $this->redirect('Lorem:lorem');
+        }
+    }
+
+    // register metoda
+    public function actionRegister(): void
+    {
+        if ($this->getUser()->loggedIn){
+            $this->flashMessage('Už jste přihlášen.');
+            $this->redirect('Lorem:lorem');
+        }
     }
 }

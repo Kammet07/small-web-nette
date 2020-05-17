@@ -41,7 +41,7 @@ return array(
     'Latte\\Runtime\\SnippetDriver' => $vendorDir . '/latte/latte/src/Latte/Runtime/SnippetDriver.php',
     'Latte\\Runtime\\Template' => $vendorDir . '/latte/latte/src/Latte/Runtime/Template.php',
     'Latte\\Sandbox\\SecurityPolicy' => $vendorDir . '/latte/latte/src/Latte/Sandbox/SecurityPolicy.php',
-    'Latte\\SecurityViolation' => $vendorDir . '/latte/latte/src/Latte/exceptions.php',
+    'Latte\\SecurityViolationException' => $vendorDir . '/latte/latte/src/Latte/exceptions.php',
     'Latte\\Strict' => $vendorDir . '/latte/latte/src/Latte/Strict.php',
     'Latte\\Token' => $vendorDir . '/latte/latte/src/Latte/Compiler/Token.php',
     'Latte\\TokenIterator' => $vendorDir . '/latte/latte/src/Latte/Compiler/TokenIterator.php',
